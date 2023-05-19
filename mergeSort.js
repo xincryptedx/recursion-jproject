@@ -3,13 +3,16 @@ const merge = (left, right) => {
   while (left.length > 0 && right.length > 0) {
     if (left[0] <= right[0]) {
       result.push(left.shift());
-    } else result.push(right.shift());
+    } else {
+      result.push(right.shift());
+    }
   }
-  if (left.length <= 0 && right.length > 0) {
-    result.concat(right);
-  } else if (left.length > 0 && right.length <= 0) {
-    result.concat(left);
+  while (left.length > 0) {
+    result.push(left.shift());
+  while (right.length > 0) {
+    result.push(right.shift());
   }
+  console.log(`Results of merger: ${result}`);
   return result;
 };
 
@@ -24,9 +27,9 @@ const mergeSortInts = (list) => {
   for (let i = 0; i < list.length; i += 1) {
     if (i < list.length / 2) {
       left.push(list[i]);
-    } else right.push(i);
+    } else right.push(list[i]);
   }
-
+  console.log(`Left: ${left}, Right: ${right}`);
   left = mergeSortInts(left);
   right = mergeSortInts(right);
 
