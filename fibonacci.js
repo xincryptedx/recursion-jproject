@@ -18,9 +18,8 @@ const fibsIter = (num) => {
 
 const fibsRecInternal = (num, fibArray = []) => {
   if (num <= 0) return fibArray;
-  else if (fibArray.length === 0) fibArray.push(0);
-  else if (fibArray.length === 1) fibArray.push(1);
-  else if (fibArray.length > 1)
+  else if (fibArray.length < 2) fibArray.push(fibArray.length);
+  else
     fibArray.push(
       fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2]
     );
