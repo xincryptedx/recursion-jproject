@@ -9,6 +9,7 @@ const merge = (left, right) => {
   }
   while (left.length > 0) {
     result.push(left.shift());
+  }
   while (right.length > 0) {
     result.push(right.shift());
   }
